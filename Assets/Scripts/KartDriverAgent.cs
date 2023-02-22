@@ -10,6 +10,8 @@ public class KartDriverAgent : Agent
     [SerializeField] private Transform startingTransform;
     [SerializeField] private Transform targetTransform;
 
+    [SerializeField] private KartMovement movement;
+
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.localPosition);
@@ -21,8 +23,11 @@ public class KartDriverAgent : Agent
         float moveX = actions.DiscreteActions[0];
         float moveZ = actions.DiscreteActions[1];
 
+        Debug.Log("Action 0: " + actions.DiscreteActions[0]);
+        Debug.Log("Action 1: " + actions.DiscreteActions[1]);
+
         float moveSpeed = 5f;
-        transform.localPosition += new Vector3(moveX, transform.localPosition.y, moveZ) * Time.deltaTime * moveSpeed;
+        transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,8 +60,8 @@ public class KartDriverAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = Input.GetAxisRaw("Horizontal");
-        continuousActions[1] = Input.GetAxisRaw("Vertical");
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = (int) Input.GetAxisRaw("Horizontal");
+        discreteActions[1] = (int) Input.GetAxisRaw("Vertical");
     }
 }
