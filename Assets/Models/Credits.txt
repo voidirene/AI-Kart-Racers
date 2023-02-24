@@ -1,4 +1,3 @@
-Assets are downloaded from OpenGameArt.org unless specified otherwise
-
-racing_kart by Keith at Fertile Soil Productions
+racing_kart by Keith at Fertile Soil Productions from OpenGameArt.org
 kenney_racingkit2 by Kenney (https://www.kenney.nl)
+kenney_carkit_1.6 by Kenney (https://www.kenney.nl)

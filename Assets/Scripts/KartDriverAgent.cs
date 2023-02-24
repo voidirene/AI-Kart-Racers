@@ -26,8 +26,8 @@ public class KartDriverAgent : Agent
         // Debug.Log("Action 0: " + actions.DiscreteActions[0]);
         // Debug.Log("Action 1: " + actions.DiscreteActions[1]);
 
-        movement.Accelerate(moveX);
-        movement.Stir(moveZ);
+        // movement.Accelerate(moveX);
+        // movement.Stir(moveZ);
         
         // float moveSpeed = 5f;
         // transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
