@@ -23,11 +23,14 @@ public class KartDriverAgent : Agent
         float moveX = actions.DiscreteActions[0];
         float moveZ = actions.DiscreteActions[1];
 
-        Debug.Log("Action 0: " + actions.DiscreteActions[0]);
-        Debug.Log("Action 1: " + actions.DiscreteActions[1]);
+        // Debug.Log("Action 0: " + actions.DiscreteActions[0]);
+        // Debug.Log("Action 1: " + actions.DiscreteActions[1]);
 
-        float moveSpeed = 5f;
-        transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
+        movement.Accelerate(moveX);
+        movement.Stir(moveZ);
+        
+        // float moveSpeed = 5f;
+        // transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

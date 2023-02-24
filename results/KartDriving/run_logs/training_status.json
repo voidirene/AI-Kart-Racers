@@ -1,0 +1,38 @@
+{
+    "KartDriver": {
+        "checkpoints": [
+            {
+                "steps": 499962,
+                "file_path": "results\\KartDriving\\KartDriver\\KartDriver-499962.onnx",
+                "reward": null,
+                "creation_time": 1677170915.918838,
+                "auxillary_file_paths": [
+                    "results\\KartDriving\\KartDriver\\KartDriver-499962.pt"
+                ]
+            },
+            {
+                "steps": 500026,
+                "file_path": "results\\KartDriving\\KartDriver\\KartDriver-500026.onnx",
+                "reward": null,
+                "creation_time": 1677170915.9706655,
+                "auxillary_file_paths": [
+                    "results\\KartDriving\\KartDriver\\KartDriver-500026.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500026,
+            "file_path": "results\\KartDriving\\KartDriver.onnx",
+            "reward": null,
+            "creation_time": 1677170915.9706655,
+            "auxillary_file_paths": [
+                "results\\KartDriving\\KartDriver\\KartDriver-500026.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}
