@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class KartMovement : MonoBehaviour
 {
-    // [SerializeField] private float maxSpeed = 2000;
-    // private float currentSpeed;
+    //TODO: ADD REVERSING
+    //[SerializeField] private float maxSpeed = 2000;
+    //private float currentSpeed;
     // [SerializeField] private float stirringSpeed = 150;
 
     // private Rigidbody rb;
@@ -47,7 +48,7 @@ public class KartMovement : MonoBehaviour
         //     Stir(Input.GetAxis("Horizontal"));
         // }
 
-        GetInputs();
+        //GetInputs();
         HandleMotor();
         HandleSteering();
         UpdateWheels();
@@ -58,6 +59,21 @@ public class KartMovement : MonoBehaviour
         horizontalInput = Input.GetAxis(horizontalAxis);
         verticalInput = Input.GetAxis(verticalAxis);
         isBreaking = Input.GetKey(KeyCode.LeftShift);
+    }
+
+    //for the AI
+    public void SetInputs(float accelerating, float steering, float breaking)
+    {
+        horizontalInput = accelerating;
+        verticalInput = steering;
+        if (breaking > 0)
+        {
+            isBreaking = true;
+        }
+        else
+        {
+            isBreaking = false;
+        }
     }
 
     private void HandleMotor()
@@ -71,6 +87,26 @@ public class KartMovement : MonoBehaviour
             ApplyBreaking();
         }
     }
+    // private void HandleMotor2()
+    // {
+    //     float speed = frontLeftWheelCollider.rpm * frontLeftWheelCollider.radius * Mathf.PI * 0.12f;
+    //     if (speed < maxSpeed)
+    //     {
+    //         frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
+    //         frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+    //     }
+    //     else
+    //     {
+    //         frontLeftWheelCollider.motorTorque = 0;
+    //         frontRightWheelCollider.motorTorque = 0;
+    //     }
+
+    //     currentBreakForce = isBreaking ? breakForce : 0f;
+    //     if (isBreaking)
+    //     {
+    //         ApplyBreaking();
+    //     }
+    // }
 
     private void ApplyBreaking()
     {

@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TrackCheckpoints : MonoBehaviour
 {
-    public event EventHandler OnKartCorrectCheckpoint;
-    public event EventHandler OnKartWrongCheckpoint;
+    public event EventHandler<KartCheckpointEventArgs> OnKartCorrectCheckpoint;
+    public event EventHandler<KartCheckpointEventArgs> OnKartWrongCheckpoint;
 
-    [SerializeField] private List<Transform> kartTransformList;
+    private List<Transform> kartTransformList;
     private List<Checkpoint> checkpointList;
     private List<int> nextCheckpointIndexList;
 
@@ -17,13 +18,20 @@ public class TrackCheckpoints : MonoBehaviour
         Transform checkpointsTransform = transform;
 
         checkpointList = new List<Checkpoint>();
-        foreach (Transform checkpointTransform in checkpointsTransform) 
+        foreach (Transform checkpointTransform in checkpointsTransform)
         {
             Checkpoint checkpoint = checkpointTransform.GetComponent<Checkpoint>();
 
             checkpoint.SetTrackCheckpoints(this);
 
             checkpointList.Add(checkpoint);
+        }
+
+        kartTransformList = new List<Transform>();
+        GameObject[] karts = GameObject.FindGameObjectsWithTag("AIKart");
+        foreach (GameObject kart in karts)
+        {
+            kartTransformList.Add(kart.transform);
         }
 
         nextCheckpointIndexList = new List<int>();
@@ -44,14 +52,32 @@ public class TrackCheckpoints : MonoBehaviour
             Checkpoint correctCheckpoint = checkpointList[nextCheckpointIndex];
             correctCheckpoint.Hide();
 
-            OnKartCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
+            KartCheckpointEventArgs args = new KartCheckpointEventArgs { kartTransform = kartTransform };
+            OnKartCorrectCheckpoint?.Invoke(this, args);
         }
         else
         {
-            OnKartWrongCheckpoint?.Invoke(this, EventArgs.Empty);
+            KartCheckpointEventArgs args = new KartCheckpointEventArgs { kartTransform = kartTransform };
+            OnKartWrongCheckpoint?.Invoke(this, args);
 
             Checkpoint correctCheckpoint = checkpointList[nextCheckpointIndex];
             correctCheckpoint.Show();
         }
+    }
+    public void ResetCheckpoint(Transform kartTransform)
+    {
+        nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = 0;
+    }
+
+    public GameObject GetNextCheckpoint(Transform kartTransform)
+    {
+        int nextCheckpointIndex = nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)];
+        Checkpoint nextCheckpoint = checkpointList[nextCheckpointIndex];
+        return nextCheckpoint.gameObject;
+    }
+
+    public class KartCheckpointEventArgs : EventArgs
+    {
+        public Transform kartTransform { get; set; }
     }
 }
