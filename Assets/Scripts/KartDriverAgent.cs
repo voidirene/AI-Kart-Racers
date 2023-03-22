@@ -6,7 +6,7 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
 public class KartDriverAgent : Agent
-{   
+{
     [SerializeField] private Transform startingTransform;
     [SerializeField] private Transform targetTransform;
 
@@ -46,7 +46,7 @@ public class KartDriverAgent : Agent
         float accelerate = 0f;
         float steer = 0f;
         float shouldBreak = 0f;
-        
+
         switch (actions.DiscreteActions[0])
         {
             case 0: accelerate = 0f; break;
@@ -54,16 +54,16 @@ public class KartDriverAgent : Agent
         }
         switch (actions.DiscreteActions[1])
         {
-            case 0: steer = -1f; break;
-            case 1: steer = 0f; break;
-            case 2: steer = 1f; break;
+            case 0: steer = 0f; break;
+            case 1: steer = 1f; break;
+            case 2: steer = -1f; break;
         }
         switch (actions.DiscreteActions[2])
         {
             case 0: shouldBreak = 0f; break;
             case 1: shouldBreak = 1f; break;
         }
-        
+        print(steer);
         movement.SetInputs(accelerate, steer, shouldBreak);
     }
 
@@ -109,7 +109,30 @@ public class KartDriverAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = (int) Input.GetAxisRaw("Horizontal");
-        discreteActions[1] = (int) Input.GetAxisRaw("Vertical");
+
+        discreteActions[0] = (int)Input.GetAxisRaw("Accelerating");
+
+        int verticalInputs = (int)Input.GetAxisRaw("Steering");
+        if (verticalInputs == 0)
+        {
+            discreteActions[1] = 0;
+        }
+        else if (verticalInputs == 1)
+        {
+            discreteActions[1] = 1;
+        }
+        else if (verticalInputs == -1)
+        {
+            discreteActions[1] = 2;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            discreteActions[2] = 1;
+        }
+        else
+        {
+            discreteActions[2] = 0;
+        }
     }
 }

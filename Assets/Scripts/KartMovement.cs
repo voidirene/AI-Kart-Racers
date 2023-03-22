@@ -16,10 +16,10 @@ public class KartMovement : MonoBehaviour
     //     rb = GetComponent<Rigidbody>();
     // }
 
-    private const string horizontalAxis = "Horizontal";
-    private const string verticalAxis = "Vertical";
-    private float horizontalInput;
-    private float verticalInput;
+    private const string accelerationAxis = "Accelerating";
+    private const string steeringAxis = "Steering";
+    private float accelerationInput;
+    private float steeringInput;
     private bool isBreaking;
     private float currentBreakForce;
     private float currentSteerAngle;
@@ -39,15 +39,6 @@ public class KartMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // if (Input.GetAxis("Vertical") != 0)
-        // {
-        //     Accelerate(Input.GetAxis("Vertical"));
-        // }
-        // if (Input.GetAxis("Horizontal") != 0)
-        // {
-        //     Stir(Input.GetAxis("Horizontal"));
-        // }
-
         //GetInputs();
         HandleMotor();
         HandleSteering();
@@ -56,16 +47,16 @@ public class KartMovement : MonoBehaviour
 
     private void GetInputs()
     {
-        horizontalInput = Input.GetAxis(horizontalAxis);
-        verticalInput = Input.GetAxis(verticalAxis);
+        accelerationInput = Input.GetAxis(accelerationAxis);
+        steeringInput = Input.GetAxis(steeringAxis);
         isBreaking = Input.GetKey(KeyCode.LeftShift);
     }
 
     //for the AI
     public void SetInputs(float accelerating, float steering, float breaking)
     {
-        horizontalInput = accelerating;
-        verticalInput = steering;
+        accelerationInput = accelerating;
+        steeringInput = steering;
         if (breaking > 0)
         {
             isBreaking = true;
@@ -78,8 +69,8 @@ public class KartMovement : MonoBehaviour
 
     private void HandleMotor()
     {
-        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+        frontLeftWheelCollider.motorTorque = accelerationInput * motorForce;
+        frontRightWheelCollider.motorTorque = accelerationInput * motorForce;
 
         currentBreakForce = isBreaking ? breakForce : 0f;
         if (isBreaking)
@@ -118,7 +109,7 @@ public class KartMovement : MonoBehaviour
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteeringAngle * horizontalInput;
+        currentSteerAngle = maxSteeringAngle * steeringInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
     }

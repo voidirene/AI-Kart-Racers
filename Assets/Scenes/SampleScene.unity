@@ -139,13 +139,14 @@ GameObject:
   - component: {fileID: 27150446}
   - component: {fileID: 27150445}
   - component: {fileID: 27150444}
+  - component: {fileID: 27150451}
   m_Layer: 0
   m_Name: AIKart (2)
   m_TagString: AIKart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &27150443
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motorForce: 8000
-  breakForce: 3000
+  breakForce: 5000
   maxSteeringAngle: 30
   frontLeftWheelCollider: {fileID: 793457249}
   frontRightWheelCollider: {fileID: 162388719}
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 1
+  DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
 --- !u!114 &27150447
 MonoBehaviour:
@@ -243,7 +244,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 5000
   startingTransform: {fileID: 130795167}
   targetTransform: {fileID: 1249051341}
   trackCheckpoints: {fileID: 1773593703}
@@ -326,6 +327,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4, y: 0.65, z: 2.65}
   m_Center: {x: 0, y: 0.51, z: 0}
+--- !u!114 &27150451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27150442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: KartDrivingDemo
+  DemonstrationDirectory: Demos
 --- !u!1 &130795166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1713,22 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0.5
   m_EndVerticalOffset: 0
+--- !u!114 &1286096511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655782951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: KartDrivingDemo
+  DemonstrationDirectory: Demos
 --- !u!1 &1316773847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,13 +2257,14 @@ GameObject:
   - component: {fileID: 1921792539}
   - component: {fileID: 1921792538}
   - component: {fileID: 1921792537}
+  - component: {fileID: 1921792544}
   m_Layer: 0
   m_Name: AIKart (1)
   m_TagString: AIKart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1921792536
 Transform:
   m_ObjectHideFlags: 0
@@ -2289,7 +2323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motorForce: 8000
-  breakForce: 3000
+  breakForce: 5000
   maxSteeringAngle: 30
   frontLeftWheelCollider: {fileID: 252334185}
   frontRightWheelCollider: {fileID: 1934841290}
@@ -2311,7 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 1
+  DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
 --- !u!114 &1921792540
 MonoBehaviour:
@@ -2328,7 +2362,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 5000
   startingTransform: {fileID: 216299791}
   targetTransform: {fileID: 1249051341}
   trackCheckpoints: {fileID: 1773593703}
@@ -2411,6 +2445,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4, y: 0.65, z: 2.65}
   m_Center: {x: 0, y: 0.51, z: 0}
+--- !u!114 &1921792544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921792535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: KartDrivingDemo
+  DemonstrationDirectory: Demos
 --- !u!4 &1931413231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49211fdf352881343a6ccc472844cb08, type: 3}
@@ -2821,7 +2871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858714378231262240, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: DecisionPeriod
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7858714378231262241, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: m_Enabled
@@ -2829,7 +2879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858714378231262241, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: breakForce
-      value: 3000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 7858714378231262241, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: motorForce
@@ -2874,6 +2924,14 @@ PrefabInstance:
     - target: {fileID: 7858714378231262242, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: m_Model
       value: 
+      objectReference: {fileID: 5022602860645237092, guid: d5887f52226929d41a598d75034fe2c0, type: 3}
+    - target: {fileID: 7858714378231262242, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858714378231262243, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
+      propertyPath: MaxStep
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 7858714378231262243, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       propertyPath: m_Enabled
@@ -2997,4 +3055,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7858714378231262270, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1286096504}
+    - targetCorrespondingSourceObject: {fileID: 7858714378231262270, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1286096511}
   m_SourcePrefab: {fileID: 100100000, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}

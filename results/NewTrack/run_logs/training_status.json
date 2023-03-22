@@ -2,22 +2,22 @@
     "KartDriver": {
         "checkpoints": [
             {
-                "steps": 768,
-                "file_path": "results\\NewTrack\\KartDriver\\KartDriver-768.onnx",
-                "reward": null,
-                "creation_time": 1679072261.5437834,
+                "steps": 63008,
+                "file_path": "results\\NewTrack\\KartDriver\\KartDriver-63008.onnx",
+                "reward": 0.0,
+                "creation_time": 1679418277.694043,
                 "auxillary_file_paths": [
-                    "results\\NewTrack\\KartDriver\\KartDriver-768.pt"
+                    "results\\NewTrack\\KartDriver\\KartDriver-63008.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 768,
+            "steps": 63008,
             "file_path": "results\\NewTrack\\KartDriver.onnx",
-            "reward": null,
-            "creation_time": 1679072261.5437834,
+            "reward": 0.0,
+            "creation_time": 1679418277.694043,
             "auxillary_file_paths": [
-                "results\\NewTrack\\KartDriver\\KartDriver-768.pt"
+                "results\\NewTrack\\KartDriver\\KartDriver-63008.pt"
             ]
         }
     },
