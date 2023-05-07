@@ -16,6 +16,7 @@ public class KartMovement : MonoBehaviour
     //     rb = GetComponent<Rigidbody>();
     // }
 
+    [SerializeField] private bool isControlledByAI = true;
     private const string accelerationAxis = "Accelerating";
     private const string steeringAxis = "Steering";
     private float accelerationInput;
@@ -39,7 +40,10 @@ public class KartMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //GetInputs();
+        if (!isControlledByAI)
+        {
+            GetInputs();
+        }
         HandleMotor();
         HandleSteering();
         UpdateWheels();

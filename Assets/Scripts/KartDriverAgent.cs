@@ -13,10 +13,13 @@ public class KartDriverAgent : Agent
     [SerializeField] private TrackCheckpoints trackCheckpoints;
     [SerializeField] private KartMovement movement;
 
+    private Rigidbody rb; //need a reference to reset velocity
+
     private void Start()
     {
         trackCheckpoints.OnKartCorrectCheckpoint += TrackCheckpoints_OnKartCorrectCheckpoint;
         trackCheckpoints.OnKartWrongCheckpoint += TrackCheckpoints_OnKartWrongCheckpoint;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void TrackCheckpoints_OnKartCorrectCheckpoint(object sender, TrackCheckpoints.KartCheckpointEventArgs e)
@@ -71,16 +74,17 @@ public class KartDriverAgent : Agent
     {
         if (other.TryGetComponent<Goal>(out Goal goal))
         {
-            SetReward(+10f);
+            AddReward(+10f);
             EndEpisode();
         }
         if (other.TryGetComponent<Checkpoint>(out Checkpoint checkpoint))
         {
-            SetReward(+1f);
+            AddReward(+1f);
         }
         if (other.gameObject.TryGetComponent<Wall>(out Wall wall))
         {
-            SetReward(-0.5f);
+            AddReward(-2f);
+            EndEpisode();
         }
     }
 
@@ -88,7 +92,7 @@ public class KartDriverAgent : Agent
     {
         if (other.gameObject.TryGetComponent<Wall>(out Wall wall))
         {
-            SetReward(-0.1f);
+            AddReward(-0.1f);
         }
     }
 
@@ -96,13 +100,15 @@ public class KartDriverAgent : Agent
     {
         if (other.gameObject.TryGetComponent<Grass>(out Grass grass))
         {
-            SetReward(-5f);
+            AddReward(-5f);
         }
     }
 
     public override void OnEpisodeBegin()
     {
         transform.localPosition = startingTransform.position;
+        rb.velocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
         trackCheckpoints.ResetCheckpoint(transform);
     }
 

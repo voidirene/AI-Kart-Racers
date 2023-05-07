@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d6d578b741eb143831b5d53db4ca42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kartTransformList: []
 --- !u!1 &2554050332249509223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,7 +2707,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 5000
   startingTransform: {fileID: 7858714377819446947}
   targetTransform: {fileID: 7675675742206523983}
   trackCheckpoints: {fileID: 2056459949289088338}
@@ -2739,6 +2738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b54596b3e9c2d04da311d8982408aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isControlledByAI: 1
   motorForce: 0
   breakForce: 0
   maxSteeringAngle: 0
