@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
     private void Update()
     {
         //pausing method
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name.Contains("Level"))
+        if (Input.GetKeyDown(KeyCode.P) && SceneManager.GetActiveScene().name.Contains("Level"))
         {
             if (!isPaused)
             {
@@ -56,6 +56,12 @@ public class MenuManager : MonoBehaviour
                 UnpauseGame();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            QuitGame();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartLevel();
     }
 
     public void PauseGame()
@@ -87,18 +93,7 @@ public class MenuManager : MonoBehaviour
     public void GameLose()
     {
         loseGame.Invoke();
-        StartCoroutine(TriggerPlayerDeath());
-    }
-    private IEnumerator TriggerPlayerDeath()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-        RestartLevel();
+        Time.timeScale = 0;
     }
 
     public void LoadScene(string sceneName)
