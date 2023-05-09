@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18362843, g: 0.22787814, b: 0.29804817, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,6 +298,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289825045}
   m_CullTransparentMesh: 1
+--- !u!4 &618038631 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7858714377819446947, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
+  m_PrefabInstance: {fileID: 7858714376621434225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +941,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7675675742206523983, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
   m_PrefabInstance: {fileID: 7858714376621434225}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1355167858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4203500186740196619, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1249051341}
+    - target: {fileID: 4203500186740196619, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: trackCheckpoints
+      value: 
+      objectReference: {fileID: 1773593703}
+    - target: {fileID: 4203500186740196619, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: startingTransform
+      value: 
+      objectReference: {fileID: 618038631}
+    - target: {fileID: 7833543077873545659, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_Name
+      value: AIKart (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916474050988506878, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5decfbc04bdc59418a6daefea539c17, type: 3}
 --- !u!114 &1773593703 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2056459949289088338, guid: 32adfea59ddae9c4abeb7791ab064cc8, type: 3}
